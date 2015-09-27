@@ -1,25 +1,6 @@
-# Angular 2 Starter
+# Micro Website Starter
 
-The goal of this starter app is to provide
-a simple way to get started with Angular 2 while also showing key Angular 2 features. The sample
-relies on JSPM/System.js to load ES6 modules and the required scripts used in the application.
-
-The sample is based on Angular Alpha 37.
-
-Simply clone the project or download and extract the .zip to get started.
-
-## Angular 2 Concepts Covered
-
-* ES6 version that relies on classes and modules
-* Required scripts are downloaded locally using JSPM
-* ES6 modules are loaded with System.js
-* Defining routes and using router-outlet
-* Using Custom Components
-* Using Custom Directives
-* Defining Properties and Using Events in Components/Directives
-* Using the Http object for Ajax calls
-* Working with Utility and Service classes (such as for sorting and Ajax calls)
-* Using the New Databinding Syntax [], () and [()]
+The software is based on Angular.alpha37, Polymer 1.0
 
 ## Usage
 
