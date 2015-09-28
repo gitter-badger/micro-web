@@ -7,7 +7,7 @@ import { UsersComponent } from 'app/components/users/users-component';
 	selector: 'dashboard'
 })
 @RouteConfig([
-	{ path: '/dashboard', components: { 'contact': ContactComponent, 'users': UsersComponent } }
+  { path: '/contact', as: 'contact', component: ContactComponent}
 ])
 @View({
 	templateUrl: 'app/themes/master/pages/dashboard/dashboard.html',
