@@ -1,14 +1,14 @@
 {
-  "name": "Angular2-ES6-Starter",
-  "version": "0.0.0",
-  "homepage": "https://github.com/DanWahlin/Angular2-ES6-Starter",
+  "name": "Micro Website starter",
+  "version": "0.0.1",
+  "homepage": "https://github.com/smisy/micro-web",
   "authors": [
-    "Thanh Truong <vagabondtt1503@gmail.com>"
+    "Smisy Team"
   ],
   "description": "",
   "main": "",
   "moduleType": [],
-  "license": "MIT",
+  "license": "Apache 2",
   "ignore": [
     "**/.*",
     "node_modules",
