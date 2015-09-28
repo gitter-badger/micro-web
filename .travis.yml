@@ -3,4 +3,4 @@ node_js:
   - "4.0"
 branches:
   except:
-    - g3sync
+    - development
