@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/smisy/micro-web.svg?branch=master)](https://travis-ci.org/smisy/micro-web)
 # Micro Website Starter
 
-The software is based on Angular.alpha37, Polymer 1.0
+The software is based on Angular 2 version-alpha 37, Polymer 1.0
 
 ## Usage
 
