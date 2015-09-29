@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/smisy/micro-web.svg?branch=master)](https://travis-ci.org/smisy/micro-web)
 # Micro Website Starter
 
+[![Join the chat at https://gitter.im/smisy/micro-web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smisy/micro-web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The software is based on Angular.alpha37, Polymer 1.0
 
 ## Usage
