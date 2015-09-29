@@ -1,21 +1,29 @@
-import { Component, View } from 'angular2/angular2';
-import { RouterOutlet, RouteConfig } from 'angular2/router';
-import { ContactComponent } from '../contact/contact-component';
-import { UsersComponent } from '../users/users-component';
-import { DataService } from 'app/services/data-service';
-//import { Header } from '../shared/header/header'
+import { Component, View, bootstrap, bind, CORE_DIRECTIVES, Inject} from 'angular2/angular2';
+import {   Redirect,
+Route,
+Router,
+RouteConfig,
+RouterOutlet,
+RouterLink,
+LocationStrategy,
+HashLocationStrategy,
+ROUTER_BINDINGS } from 'angular2/router';
+import { Home } from 'app/themes/master/pages/home/home';
+import { Dashboard } from 'app/themes/master/pages/dashboard/dashboard';
 
 @Component({ selector: 'app' })
+
 @View({
   templateUrl: 'app/components/app/app-component.html',
-  directives: [RouterOutlet],
+  directives: [RouterOutlet, RouterLink],
 })
+
 @RouteConfig([
-  { path: '/', as: 'users', component: UsersComponent },
-  { path: '/contact', as: 'contact', component: ContactComponent },
-  { path: '/users', as: 'users', component: UsersComponent }
+  { path: '/home', as: 'home', component: Home },
+  { path: '/dashboard/...', as: 'dashboard', component: Dashboard },
+  {path: '', redirectTo: 'home'}
 ])
+
 export class AppComponent {
 
 }
-// bootstrap(AppComponent);

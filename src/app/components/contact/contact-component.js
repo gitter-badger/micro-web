@@ -1,17 +1,18 @@
-import { Component, View, NgFor } from 'angular2/angular2';
-import { ObservableWrapper } from 'angular2/src/core/facade/async';
-import { Inject } from 'angular2/angular2';
-import { DataService } from '../../services/data-service';
-import { Sorter } from '../../utils/sorter';
-import { FilterTextboxComponent } from '../filter-textbox/filter-textbox-component';
-import { SortByDirective } from '../../directives/sortby/sortby-directive';
-import { CurrencyPipe } from '../../pipes/currency-pipe';
+import {Component, View, bootstrap} from 'angular2/angular2';
+import {  Redirect,
+Route,
+Router,
+RouteConfig,
+RouterOutlet,
+RouterLink,
+LocationStrategy,
+HashLocationStrategy,
+ROUTER_BINDINGS,
+routerInjectables} from 'angular2/router';
 
-@Component({ selector: 'contact' , bindings: [DataService] })
+@Component({ selector: 'contact'})
 @View({
-  templateUrl: 'app/components/contact/contact-component.html',
-  directives: [NgFor, FilterTextboxComponent, SortByDirective],
-  pipes: [CurrencyPipe]
+  templateUrl: 'app/components/contact/contact-component.html'
 })
 export class ContactComponent {
 

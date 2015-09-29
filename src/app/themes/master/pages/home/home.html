@@ -1,10 +1,45 @@
-<h1>Howdy!</h1>
+<link rel="import" href="/bower_components/paper-input/paper-input.html">
+<paper-toolbar>
+  <paper-icon-button icon="menu"></paper-icon-button>
+  <span class="title">Toolbar</span>
+  <paper-icon-button icon="refresh"></paper-icon-button>
+  <paper-icon-button icon="add">+</paper-icon-button>
+</paper-toolbar>
+<div class="content">
+  <section>
+    <paper-material elevation="1">
+      <div class="layout horizontal">
+        <div class="layout vertical center flex-6">
 
-<h2>
-  Gratz!
-</h2>
+          <div class="impress-md text-uppercase" translate>
+            Register_Slogan_FirstLine
+          </div>
+          <div class="impress-md text-uppercase">
+            <span class="color-primary" translate>Register_Slogan_SecondLine</span>
+          </div>
+          <div>
+            <ul>
+              <li translate>Register_FirstFeature</li>
+              <li translate>Register_SecondFeature</li>
+              <li translate>Register_ThirdFeature</li>
+            </ul>
+          </div>
 
-<p>
-  Your deployment of Angular 2 Seed worked perfectly!
-  Click <em>about (above)</em> to get your reward!
-</p>
+        </div>
+        <div class="layout vertical flex-6">
+          <paper-input label="input validates on blur (required, auto-validate)" required auto-validate error-message="needs some text!"></paper-input>
+
+          <paper-input label="only type letters (auto-validate)" auto-validate pattern="[a-zA-Z]*" error-message="letters only!"></paper-input>
+
+          <paper-input id="inputForValidation" required label="only type letters (no auto validate)" pattern="[a-zA-Z]*" error-message="letters only, required input!"></paper-input>
+
+          <button onclick="validate()">Validate!</button>
+        </div>
+      </div>
+
+    </paper-material>
+  </section>
+</div>
+<a [router-link]="['/dashboard']">
+  <span>Dashboard</span>
+</a>
