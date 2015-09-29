@@ -2,8 +2,9 @@ language: node_js
 node_js:
   - "4.0"
 branches:
-  except:
+  only:
     - master
+    - development
 before_script:
   - npm install
   - bower install
