@@ -106,9 +106,9 @@ gulp.task('elements', function () {
 // Lint JavaScript
 gulp.task('jshint', function () {
   return jshintTask([
-      'app/scripts/**/*.js',
-      'app/elements/**/*.js',
-      'app/elements/**/*.html',
+      'src/app/scripts/**/*.js',
+      'src/app/elements/**/*.js',
+      'src/app/elements/**/*.html',
       'gulpfile.js'
     ])
     .pipe($.jshint.extract()) // Extract JS from .html files
@@ -118,76 +118,81 @@ gulp.task('jshint', function () {
 });
 
 // Optimize images
-gulp.task('images', function () {
-  return imageOptimizeTask('app/images/**/*', 'dist/images');
-});
+//gulp.task('images', function () {
+//  imageOptimizeTask('src/app/**/*.jpg', 'dist/images');
+ // return imageOptimizeTask('src/app/images/**/*', 'dist/images');
+//});
 
 // Copy all files at the root level (app)
 gulp.task('copy', function () {
   var app = gulp.src([
-    'app/*',
-    '!app/test',
-    '!app/cache-config.json'
+    'src/**/**',
+    '!src/app/test',
+    '!src/app/cache-config.json'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest('dist/'));
 
-  var bower = gulp.src([
-    'bower_components/**/*'
-  ]).pipe(gulp.dest('dist/bower_components'));
+  //var bower = gulp.src([
+  //  'src/bower_components/**/*'
+  //]).pipe(gulp.dest('dist/bower_components'));
+  
+  // var jspm_packages = gulp.src([
+  //  'src/jspm_packages/**/*'
+  //]).pipe(gulp.dest('dist/jspm_packages'));
 
-  var elements = gulp.src(['app/elements/**/*.html',
-                           'app/elements/**/*.css',
-                           'app/elements/**/*.js'])
-    .pipe(gulp.dest('dist/elements'));
+  //var elements = gulp.src(['src/app/elements/**/*.html',
+  //                         'src/app/elements/**/*.css',
+  //                         'src/app/elements/**/*.js'])
+  //  .pipe(gulp.dest('dist/app/elements'));
 
-  var swBootstrap = gulp.src(['bower_components/platinum-sw/bootstrap/*.js'])
-    .pipe(gulp.dest('dist/elements/bootstrap'));
+  //var swBootstrap = gulp.src(['src/bower_components/platinum-sw/bootstrap/*.js'])
+  //  .pipe(gulp.dest('dist/app/elements/bootstrap'));
 
-  var swToolbox = gulp.src(['bower_components/sw-toolbox/*.js'])
-    .pipe(gulp.dest('dist/sw-toolbox'));
+  //var swToolbox = gulp.src(['src/bower_components/sw-toolbox/*.js'])
+  //  .pipe(gulp.dest('dist/app/sw-toolbox'));
 
-  var vulcanized = gulp.src(['app/elements/elements.html'])
-    .pipe($.rename('elements.vulcanized.html'))
-    .pipe(gulp.dest('dist/elements'));
+  //var vulcanized = gulp.src(['src/app/elements/elements.html'])
+  //  .pipe($.rename('elements.vulcanized.html'))
+  //  .pipe(gulp.dest('dist/elements'));
 
-  return merge(app, bower, elements, vulcanized, swBootstrap, swToolbox)
+  return merge(app)//, elements, vulcanized, swBootstrap, swToolbox)
     .pipe($.size({title: 'copy'}));
 });
 
 // Copy web fonts to dist
-gulp.task('fonts', function () {
-  return gulp.src(['app/fonts/**'])
+/*gulp.task('fonts', function () {
+  return gulp.src(['src/app/fonts/**'])
     .pipe(gulp.dest('dist/fonts'))
     .pipe($.size({title: 'fonts'}));
-});
+});*/
 
 // Scan your HTML for assets & optimize them
-gulp.task('html', function () {
-  return optimizeHtmlTask(
-    ['app/**/*.html', '!app/{elements,test}/**/*.html'],
-    'dist');
-});
+//gulp.task('html', function () {
+//  return optimizeHtmlTask(
+//    ['src/app/**/*.html', '!src/app/{elements,test}/**/*.html'],
+//    'dist/app');
+//});
 
 // Polybuild will take care of inlining HTML imports,
 // scripts and CSS for you.
-gulp.task('vulcanize', function () {
+/*gulp.task('vulcanize', function () {
   return gulp.src('dist/index.html')
     .pipe(polybuild({maximumCrush: true}))
     .pipe(gulp.dest('dist/'));
-});
+});*/
 
 // If you require more granular configuration of Vulcanize
 // than polybuild provides, follow instructions from readme at:
 // https://github.com/PolymerElements/polymer-starter-kit/#if-you-require-more-granular-configuration-of-vulcanize-than-polybuild-provides-you-an-option-by
 
 // Rename Polybuild's index.build.html to index.html
-gulp.task('rename-index', function () {
+/*gulp.task('rename-index', function () {
   gulp.src('dist/index.build.html')
     .pipe($.rename('index.html'))
     .pipe(gulp.dest('dist/'));
   return del(['dist/index.build.html']);
-});
+});*/
 
 // Generate config data for the <sw-precache-cache> element.
 // This include a list of files that should be precached, as well as a (hopefully unique) cache
@@ -252,11 +257,11 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
     }
   });
 
-  gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.css'], ['styles', reload]);
-  gulp.watch(['app/elements/**/*.css'], ['elements', reload]);
-  gulp.watch(['app/{scripts,elements}/**/{*.js,*.html}'], ['jshint']);
-  gulp.watch(['app/images/**/*'], reload);
+  gulp.watch(['src/app/**/*.html'], reload);
+  gulp.watch(['src/app/styles/**/*.css'], ['styles', reload]);
+  gulp.watch(['src/app/elements/**/*.css'], ['elements', reload]);
+  gulp.watch(['src/app/{scripts,elements}/**/{*.js,*.html}'], ['jshint']);
+  gulp.watch(['src/app/images/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
@@ -312,8 +317,8 @@ gulp.task('default', ['clean'], function (cb) {
   runSequence(
     ['copy', 'styles'],
     'elements',
-    ['jshint', 'images', 'fonts', 'html'],
-    'vulcanize','rename-index', // 'cache-config',
+    //['jshint'],
+    //'vulcanize', // 'cache-config',
     cb);
 });
 
