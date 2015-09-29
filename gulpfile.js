@@ -89,7 +89,7 @@ var optimizeHtmlTask = function (src, dest) {
 };
 
 gulp.task('compile-less', function () {
-  gulp.src('app/**/*.less', { base: './' })
+  gulp.src('src/app/**/*.less', { base: './' })
     .pipe(less())
     .pipe(gulp.dest('./'));
 });
@@ -278,6 +278,30 @@ gulp.task('serve:dist', ['default'], function () {
     //       will present a certificate warning in the browser.
     // https: true,
     server: 'dist',
+    middleware: [ historyApiFallback() ]
+  });
+});
+
+
+// Build and serve the output from the dist build
+gulp.task('dev', ['compile-less'], function () {
+  browserSync({
+    port: 5001,
+    notify: false,
+    logPrefix: 'PSK',
+    snippetOptions: {
+      rule: {
+        match: '<span id="browser-sync-binding"></span>',
+        fn: function (snippet) {
+          return snippet;
+        }
+      }
+    },
+    // Run as an https by uncommenting 'https: true'
+    // Note: this uses an unsigned certificate which on first access
+    //       will present a certificate warning in the browser.
+    // https: true,
+    server: 'src/app',
     middleware: [ historyApiFallback() ]
   });
 });
