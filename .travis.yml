@@ -4,3 +4,8 @@ node_js:
 branches:
   except:
     - master
+before_script:
+  - npm install
+  - bower install
+  - jspm install
+ script: gulp copy
