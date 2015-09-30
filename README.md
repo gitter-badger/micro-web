@@ -1,17 +1,20 @@
-[![Build Status](https://travis-ci.org/smisy/micro-web.svg?branch=master)](https://travis-ci.org/smisy/micro-web)
 # Micro Website Starter
 
-The software is based on Angular.alpha37, Polymer 1.0
+[![Join the chat at https://gitter.im/smisy/micro-web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smisy/micro-web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/smisy/micro-web.svg?branch=master)](https://travis-ci.org/smisy/micro-web)
+[![Join the chat at https://gitter.im/smisy/micro-web](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/smisy/micro-web?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+The software is based on Angular 2 version-alpha 37, Polymer 1.0
 
 ## Usage
 
 1. Install global dependencies **if necessary**
 
         npm install -g jspm superstatic live-server
-        npm install
 
 2. Install node packages:
 
+        npm install
         jspm install
         bower install
 
